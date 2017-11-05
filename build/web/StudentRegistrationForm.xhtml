@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Very Secure Registration Page Trust Me</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h3>Very Secure Registration Page Trust Me
+            </h3>
+            <h:panelGrid columns="4" style="color:black" >
+                <h:outputLabel value="Username" />
+                <h:inputText id="usernameInputText"/>
+                <h:outputLabel value="Password" />
+                <h:inputText id="passwordInputText"/>
+                <h:outputLabel value="First Name"/>
+                <h:inputText id="firstNameInputText"/>
+                <h:outputLabel value="Last Name" />
+                <h:inputText id="lastNameInputText"/>
+                <h:outputText value ="Email"/>
+                <h:inputText id="emailInputText"/>
+                <h:outputLabel value ="Last IP"/>
+                <h:inputText id="lastIPInputText"/>
+            </h:panelGrid>
+
+            <h:commandButton value="Register"/>
+            <br/>
+            <h:outputText escape ="false" style="color:red" value="#{registration.response}"/>
+            <br/>
+            <h:graphicImage id="usIcon" url="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png" />
+        </h:form>
+    </h:body>
+</html>
+
