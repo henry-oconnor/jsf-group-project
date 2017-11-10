@@ -12,14 +12,14 @@
             <h:panelGrid columns="3" style="color:black" >
                 <h:outputLabel value="Username" />
                 <h:inputText id="usernameInputText" required="true" requiredMessage="Required field" 
-                             validatorMessage="Letters and digits only" value="#{registration.username}">
+                             validatorMessage="Letters and digits only, 3 characters minimum" value="#{registration.username}">
                     <f:validateRegex pattern="^[A-Za-z0-9]{3,64}$"/>
                 </h:inputText>
                 <h:message for="usernameInputText" style="color:red"/>
 
                 <h:outputLabel value="Password" />
                 <h:inputText id="passwordInputText" required="true" requiredMessage="Required field" 
-                             validatorMessage="Minimum of eight characters, including one capital letter and one number" value="#{registration.password}">
+                             validatorMessage="Minimum of eight alphanumeric characters, at least one capital letter and one number" value="#{registration.password}">
                     <f:validateRegex pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,64}$"/>
                 </h:inputText>
                 <h:message for="passwordInputText" style="color:red"/>
@@ -45,20 +45,19 @@
                 </h:inputText>
                 <h:message for="emailInputText" style="color:red"/>
                 
-                <h:outputLabel value ="Last IP"/>
-                <h:inputText id="lastIPInputText" required="true" requiredMessage="Required field" 
-                             validatorMessage="Format as xxx.xxx.xxx.xxx" value="#{registration.lastIP}">
-                    <f:validateRegex pattern="^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"/>
-                </h:inputText>
-                <h:message for="lastIPInputText" style="color:red"/>
-                
             </h:panelGrid>
-
-            <h:commandButton value="OK"/>
+            
+            <h:commandButton value="Register" action ="#{registration.submitData()}"/>
+            
+            <h:commandButton value="Reset" type="reset" />
+            
+            <h:commandButton value="View Table" action="TableDisplay" >
+                <f:ajax /> <!-- bypasses required fields by skipping processing of @form-->
+            </h:commandButton>
+            
             <br/>
-            <h:outputText escape ="false" style="color:red" value="#{registration.response}"/>
+            <h:outputText escape ="false" style="color:red" value="#{registration.printResults()}"/>
             <br/>
-            <h:graphicImage name="business-photo.jpg" library="image" />
         </h:form>
     </h:body>
 </html>
